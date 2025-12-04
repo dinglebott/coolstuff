@@ -71,17 +71,16 @@
             })
 
             //position image labels
-            let ssPos = $("#solarSystem").position();
-            let ssDims = [$("#solarSystem").width(), $("#solarSystem").height()];
-            let ssDescWidth = $("#ssDesc").width();
-            let mwPos = $("#milkyWay").position();
-            let mwDims = [$("#milkyWay").width(), $("#milkyWay").height()];
-            let mwDescWidth = $("#mwDesc").width();
-            let lgPos = $("#localGroup").position();
-            let lgDims = [$("#localGroup").width(), $("#localGroup").height()];
-            let lgDescWidth = $("#lgDesc").width();
-            
             function setLabels() {
+                let ssPos = $("#solarSystem").position();
+                let ssDims = [$("#solarSystem").width(), $("#solarSystem").height()];
+                let ssDescWidth = $("#ssDesc").width();
+                let mwPos = $("#milkyWay").position();
+                let mwDims = [$("#milkyWay").width(), $("#milkyWay").height()];
+                let mwDescWidth = $("#mwDesc").width();
+                let lgPos = $("#localGroup").position();
+                let lgDims = [$("#localGroup").width(), $("#localGroup").height()];
+                let lgDescWidth = $("#lgDesc").width();
                 //standard layout
                 if (900 <= $(window).width()) {
                     $("#ssDesc").css({
@@ -140,15 +139,15 @@
                         "top": lgPos.top + lgDims[1]*0.8
                     });
                 }
+                console.log("Labels set")
             }
 
-            $(window).on("load", function() {
-                setTimeout(setLabels(), 10000);
-            });
+            $(window).on("load", setLabels());
         </script>
     </body>
 
 </html>
+
 
 
 
