@@ -142,8 +142,11 @@
                 }
             }
 
-            $(window).on("load", setLabels());
+            $(window).on("load", function() {
+                setTimeout(setLabels(), 50);
+            });
         </script>
     </body>
 
 </html>
+
