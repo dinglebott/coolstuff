@@ -142,11 +142,14 @@
                 console.log("Labels set")
             }
 
-            $(window).on("load", setLabels());
+            $(window).on("load", function() {
+                setTimeout(setLabels, 50);
+            });
         </script>
     </body>
 
 </html>
+
 
 
 
