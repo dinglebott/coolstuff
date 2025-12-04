@@ -61,7 +61,7 @@ body {
 #flexWrapper {
     width: 90%;
     flex-grow: 1;
-    margin: 0 auto 2rem;
+    margin: 0 auto 6rem;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: minmax(0, min(30%, 350px)) 1rem 1fr;
@@ -187,4 +187,5 @@ h3 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6)), url(assets/space_page.jpg);
     background-size: cover;
     background-position: center;
+
 }
