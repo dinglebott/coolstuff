@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cool Stuff - Space</title>
+        <link rel="icon" href="../assets/planet_icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="mainStyles.css">
+        <link rel="stylesheet" href="indexStyles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="mainScript.js" defer></script>
+    </head>
+
+    <body class="hidden">
+        <div id="headerBox">
+            <div id="homeButton" class="button">
+                <img id="homeButtonIcon" src="../assets/planet_icon.png">
+                Home
+            </div>
+            <h1 id="pageTitle">Space</h1>
+        </div>
+        
+        <div id="contentBox">
+            <div id="topicOrigin" class="content">
+                <h2>Origin</h2>
+                <p>The Universe is thought to have begun as a singularity, an infinitely 
+                    small and dense point that contained all the matter in our Universe. 
+                    The singularity then expanded rapidly in the Big Bang, becoming the 
+                    Universe we know today. Learn more about the Big Bang <a href="bigBang.html">here</a>.</p>
+            </div>
+            <div id="topicAge" class="content">
+                <h2>Age</h2>
+                <p>Using methods such as measuring the cosmic microwave background radiation of 
+                    the Universe, astronomers estimate the Universe to have existed for around 
+                    13.8 billion years. Meanwhile, its total lifespan is projected to be roughly 
+                    33 billion years.</p>
+            </div>
+            <div id="topicSize" class="content">
+                <h2>Size</h2>
+                <p>The observable universe is a sphere of radius 46.5 billion light-years around Earth. 
+                    This is the region of the Universe that is theoretically visible to us. Light from 
+                    outside this sphere has not had the time to reach Earth, based on the current age of 
+                    the Universe. Outside this sphere, it is unknown how big the Universe really is.</p>
+                </p>
+            </div>
+            <div id="spaceMap">
+                <p id="spaceMapDesc">Our Solar System is part of the Milky Way galaxy, which is part of 
+                    a larger group of galaxies called the Local Group (about 10 million light-years long).</p>
+                <div id="ssWrapper">
+                    <img id="solarSystem" title="Solar System" src="../assets/space/solar_system.jpg" alt="Image of the Solar System">
+                    <p id="ssDesc">Our Solar System</p>
+                </div>
+                <div id="mwWrapper">
+                    <img id="milkyWay" title="Milky Way" src="../assets/space/milky_way.jpeg" alt="Image of the Milky Way">
+                    <p id="mwDesc">The Milky Way</p>
+                </div>
+                <div id="lgWrapper">
+                    <img id="localGroup" title="Local Group" src="../assets/space/local_group.png" alt="Image of the Local Group">
+                    <p id="lgDesc">Local Group</p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            //home button link
+            $("#homeButton").click(function() {
+                location.href = "../index.html"
+            });
+
+            //position image labels
+            function setLabels() {
+                let ssPos = $("#solarSystem").position();
+                let ssDims = [$("#solarSystem").width(), $("#solarSystem").height()];
+                let ssDescWidth = $("#ssDesc").width();
+                let mwPos = $("#milkyWay").position();
+                let mwDims = [$("#milkyWay").width(), $("#milkyWay").height()];
+                let mwDescWidth = $("#mwDesc").width();
+                let lgPos = $("#localGroup").position();
+                let lgDims = [$("#localGroup").width(), $("#localGroup").height()];
+                let lgDescWidth = $("#lgDesc").width();
+                //standard layout
+                if (900 <= $(window).width()) {
+                    $("#ssDesc").css({
+                        "left": ssPos.left + ssDims[0]/2 - ssDescWidth/2,
+                        "top": ssPos.top + ssDims[1]
+                    });
+                    $("#mwDesc").css({
+                        "left": mwPos.left + mwDims[0]/2 - mwDescWidth/2,
+                        "top": mwPos.top - $("#mwDesc").height()*2 + mwDims[1]*0.05
+                    });
+                    $("#lgDesc").css({
+                        "left": lgPos.left + lgDims[0]/2 - lgDescWidth/2,
+                        "top": lgPos.top - $("#lgDesc").height()*2 + lgDims[1]*0.05
+                    });
+                }
+                //staggered layout
+                if (768 <= $(window).width() && $(window).width() < 900) {
+                    $("#spaceMapDesc").css({
+                        "top": $("#spaceMap").height() - $("#spaceMapDesc").height()*1.3
+                    });
+                    $("#ssDesc").css({
+                        "left": ssPos.left + ssDims[0]*0.95,
+                        "top": ssPos.top
+                    });
+                    $("#mwDesc").css({
+                        "left": mwPos.left + mwDims[0]/2 - mwDescWidth/2,
+                        "top": mwPos.top - $("#mwDesc").height()*2 + mwDims[1]*0.05
+                    });
+                    $("#lgDesc").css({
+                        "left": lgPos.left + lgDims[0]*0.75 - lgDescWidth/2,
+                        "top": lgPos.top - $("#lgDesc").height()*1.5 + lgDims[1]*0.05
+                    });
+                }
+                //vertical layout
+                if ($(window).width() < 768) {
+                    $("#spaceMap").css({
+                        "margin-top": "70px"
+                    });
+                    $("#spaceMapDesc").css({
+                        "max-width": "100%",
+                        "top": "-70px",
+                        "right": "auto",
+                        "left": 0,
+                        "font-size": "0.9rem"
+                    });
+                    $("#ssDesc").css({
+                        "left": ssPos.left + ssDims[0] - ssDescWidth*0.3,
+                        "top": ssPos.top + ssDims[1]*0.8
+                    });
+                    $("#mwDesc").css({
+                        "left": mwPos.left + mwDims[0] - mwDescWidth*0.3,
+                        "top": mwPos.top + mwDims[1]*0.8
+                    });
+                    $("#lgDesc").css({
+                        "left": lgPos.left + lgDims[0] - lgDescWidth*0.3,
+                        "top": lgPos.top + lgDims[1]*0.8
+                    });
+                }
+                console.log("Labels set")
+            }
+
+            $(window).on("load", function() {
+                setTimeout(setLabels, 50);
+            });
+            $(window).on("resize", function() {
+                setTimeout(setLabels, 50);
+            });
+        </script>
+    </body>
+</html>

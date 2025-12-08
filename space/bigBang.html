@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cool Stuff - Big Bang</title>
+        <link rel="icon" href="../assets/planet_icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="mainStyles.css">
+        <link rel="stylesheet" href="bigBangStyles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="mainScript.js" defer></script>
+    </head>
+
+    <body class="hidden">
+        <div id="headerBox">
+            <div id="backButton" class="button">
+                <img id="backButtonIcon" src="../assets/back_arrow.png">
+                Back
+            </div>
+            <h1 id="pageTitle">Big Bang</h1>
+        </div>
+        
+        <div id="contentBox">
+            <p id="intro" class="unscrollable">The Big Bang remains one of the most mysterious moments in our Universe's history to date. 
+                This is mainly because no one was around to see it happen. However, we do have some ideas...</p>
+            <div id="bigBangContainer">
+                <img id="bigBang" src="../assets/space/big_bang.jpg">
+            </div>
+            <div id="contents" class="unscrollable">
+                <h2>Contents of the Universe</h2>
+                <p>At first, there were almost equal amounts of matter and antimatter, which annihilated each other 
+                    almost instantly. However, there was a TINY bit of matter left over, roughly 0.0000033%. 
+                    In other words, for every 30 million kg of antimatter, there was 30 million and 1 kg of matter! 
+                    That leftover matter makes up every galaxy, star, and planet we see today.</p>
+            </div>
+            <div id="cmb" class="unscrollable">
+                <h2>Cosmic Microwave Background</h2>
+                <p>It took 380,000 years after the Big Bang for the Universe to become transparent. This was when 
+                    the very first atoms formed, turning the Universe from an opaque plasma into a gas. (Before this it 
+                    was too hot to form stable atoms.) The light that travelled the Universe at this point, originating 
+                    all the way from the Big Bang, can still be seen today!</p>
+            </div>
+            <div id="cmbi" class="unscrollable">
+                <img id="cmbImg" src="../assets/space/cmb.jpeg">
+                <p id="cmbiDesc">Heatmap of the CMB. This pattern can be seen everywhere in space, 
+                    a background of microwave from every direction at the same time.</p>
+            </div>
+            <div id="quantumGrav" class="unscrollable">
+                <h2>Nature of the Big Bang</h2>
+                <p>NOTHING is known about the actual singularity we spawned from. Our two existing frameworks to explain 
+                    all of reality are <span>general relativity</span> and <span>quantum mechanics</span>. The two theories 
+                    are fundamentally different in how they conceptualise our reality, and CANNOT agree with each other.</p>
+                <p>Usually, relativity is applicable at cosmic scales (stars and planets), while quantum mechanics is used 
+                    at quantum scales (electrons and quarks), and thus they don't overlap. However, singularities like 
+                    the Big Bang are a rare circumstance where BOTH relativistic and quantum effects are significant. 
+                    This is where our theories fail us, because we have NO CLUE how to do it.</p>
+                <p>The only known places in the Universe with similar conditions are the singularities inside black holes. 
+                    Which are a bit hard to reach. So we currently have nothing concrete to really study in this field...</p>
+            </div>
+        </div>
+        
+        <script>
+            $("#backButton").click(function () {
+                location.href = "index.html"
+            })
+        </script>
+    </body>
+</html>

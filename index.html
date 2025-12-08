@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cool Stuff</title>
+        <link rel="icon" href="assets/planet_icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <h1 id="pageTitle">Cool Stuff</h1>
+        
+        <div id="flexWrapper">
+            <div id="leftBar">
+                <h2>About</h2>
+                <p>I created this website to practise coding with HTML, 
+                    CSS, and JavaScript. For those unfamiliar, <span id="html">HTML</span> 
+                    defines the basic structure of the page, <span id="css">CSS</span> 
+                    controls the layout and design, and <span id="js">JavaScript</span> controls 
+                    the interactive elements. (Hover/click on the words for a sample of each type of code.)</p>
+                <p>The content of this website is simply random things that I find interesting. 
+                    I will probably continue adding more pages and more topics (if I don't get 
+                    bored of coding websites).</p>
+                <div id="htmlSample" class="sample">
+                    <img src="assets/html_sample.png" class="sampleImg">
+                    <p class="sampleDesc">Snippet of the HTML code for this page</p>
+                </div>
+                <div id="cssSample" class="sample">
+                    <img src="assets/css_sample.png" class="sampleImg">
+                    <p class="sampleDesc">Snippet of the CSS code for this page</p>
+                </div>
+                <div id="jsSample" class="sample">
+                    <img src="assets/js_sample.png" class="sampleImg">
+                    <p class="sampleDesc">The JavaScript that makes the tabs to the right interactive</p>
+                </div>
+            </div>
+            <div id="spacer"></div>
+            <div id="rightBar">
+                <h2>Pages</h2>
+                <div id="pages">
+                    <div id="space" class="tab">
+                        <h3>SPACE</h3>
+                        <p class="tabDesc hidden">Read about the origins and structure of our Universe --></p>
+                    </div>
+                    <div id="threeBody" class="tab">
+                        <h3>3-BODY PROBLEM</h3>
+                        <p class=" tabDesc hidden">See the famous unsolved problem in action --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

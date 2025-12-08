@@ -1,0 +1,235 @@
+/* content boxes control */
+#contentBox {
+    margin: 0 1rem 1rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "or ag si"
+    "ma ma ma";
+    gap: 1rem;
+}
+
+@media screen and (480px <= width < 768px) {
+    #contentBox {
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "or ag"
+        "si si"
+        "ma ma";
+    }
+}
+
+@media screen and (width < 480px) {
+    #contentBox {
+        grid-template-rows: auto auto auto 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "or"
+        "ag"
+        "si"
+        "ma";
+    }
+}
+
+.content {
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    padding: 0 0.7rem;
+    line-height: 2;
+    text-align: justify;
+    font-weight: normal;
+}
+
+@media screen and (width < 1200px) {
+    .content {
+        line-height: normal;
+    }
+}
+
+h2 {
+    margin: 0.5rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+#topicOrigin {
+    grid-area: or;
+}
+
+#topicAge {
+    grid-area: ag;
+}
+
+#topicSize {
+    grid-area: si;
+}
+
+/*space map control */
+#spaceMap {
+    min-height: 700px;
+    position: relative;
+    grid-area: ma;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "ss mw lg";
+    gap: 1rem;
+}
+
+@media screen and (768px <= width < 1220px) {
+    #spaceMap {
+        min-height: 500px;
+    }
+}
+
+#spaceMapDesc {
+    max-width: 30%;
+    position: absolute;
+    right: 0;
+    margin: 0 1.5rem;
+    text-align: justify;
+}
+
+#ssWrapper {
+    width: 100%;
+    height: 100%;
+    grid-area: ss;
+    position: relative;
+}
+
+#mwWrapper {
+    width: 100%;
+    height: 100%;
+    grid-area: mw;
+    position: relative;
+}
+
+#lgWrapper {
+    width: 100%;
+    height: 100%;
+    grid-area: lg;
+    position: relative;
+}
+/* images control */
+#spaceMap img {
+    display: block;
+}
+
+#solarSystem {
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    clip-path: ellipse(50% 50% at center);
+}
+
+#milkyWay {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    clip-path: ellipse(50% 45% at center);
+}
+
+#localGroup {
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    clip-path: ellipse(48% 45% at center);
+}
+/* label positioned with internal script */
+#spaceMap p:not(#spaceMapDesc) {
+    position: absolute;
+    margin: 0.5rem 0;
+    white-space: nowrap;
+}
+/* staggered map layout */
+@media screen and (768px <= width < 900px) {
+    #spaceMap {
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "ss mw"
+        "lg lg";
+    }
+
+    #solarSystem {
+        width: 80%;
+    }
+
+    #milkyWay {
+        width: 75%;
+        right: 0%;
+        bottom: 0%;
+        top: auto;
+        transform: translate(0, 30%);
+    }
+
+    #localGroup {
+        width: 50%;
+        left: 10%;
+    }
+}
+/* vertical map layout */
+@media screen and (width < 768px) {
+    #spaceMap {
+        min-height: 1000px;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "ss"
+        "mw"
+        "lg";
+    }
+
+    #solarSystem {
+        width: 60%;
+        top: 15%
+    }
+
+    #milkyWay {
+        width: 60%;
+        left: 0%;
+        right: auto;
+        top: -5%;
+        bottom: auto;
+        transform: translate(0, 0);
+    }
+
+    #localGroup {
+        width: 65%;
+        left: -1%;
+    }
+}
+
+@media screen and (width < 670px) {
+    #spaceMap {
+        min-height: 850px;
+    }
+}
+
+@media screen and (width < 590px) {
+    #spaceMap {
+        min-height:750px;
+    }
+}
+
+@media screen and (width < 520px) {
+    #spaceMap {
+        min-height: 660px;
+    }
+}
+
+@media screen and (width < 440px) {
+    #spaceMap {
+        min-height: 550px;
+    }
+}
+
+@media screen and (width < 400px) {
+    #spaceMap {
+        min-height: 500px;
+    }
+}

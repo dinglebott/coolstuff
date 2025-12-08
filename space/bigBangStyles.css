@@ -1,0 +1,161 @@
+/* main content box control */
+#contentBox {
+    padding: 0 1rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 530px 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+    "in in in"
+    "co img qu"
+    "cmb cmbi qu";
+    gap: 2rem;
+    line-height: 2;
+}
+
+@media screen and (803px <= width < 1100px) {
+    #contentBox {
+        grid-template-columns: 1fr 530px;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+        "in in"
+        "co img"
+        "cmb cmbi"
+        "qu qu";
+    }
+}
+
+@media screen and (width < 803px) {
+    #contentBox {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 195px auto auto auto;
+        grid-template-areas: 
+        "in"
+        "co"
+        "img"
+        "cmb"
+        "cmbi"
+        "qu";
+    }
+}
+
+h2 {
+    text-align: left;
+}
+
+p {
+    text-align: justify;
+}
+
+img {
+    place-self: center;
+}
+/* scroll only big bang image */
+@media screen and (width < 562px) {
+    #contentBox {
+        max-width: 100vw;
+    }
+
+    .unscrollable {
+        max-width: 100%;
+    }
+
+    .unscrollable * {
+        max-width: 100%;
+    }
+
+    #bigBangContainer {
+        overflow: scroll;
+    }
+}
+
+/* content boxes control */
+#intro {
+    grid-area: in;
+    margin: 0;
+    font-weight: bold;
+}
+
+#bigBangContainer {
+    width: 100%;
+    height: 100%;
+    grid-area: img;
+    display: grid;
+}
+
+#bigBang {
+    width: 530px;
+    height: 195px;
+    grid-area: img;
+}
+
+#contents {
+    grid-area: co;
+}
+
+#contents * {
+    margin: 0;
+}
+
+#cmb {
+    grid-area: cmb;
+}
+
+#cmb * {
+    margin: 0;
+}
+
+#cmbi {
+    grid-area: cmbi;
+    display: grid;
+}
+
+#cmbi * {
+    margin: 0;
+}
+
+#cmbImg {
+    width: 530px;
+    margin-top: 3rem;
+}
+
+#cmbiDesc {
+    text-align: center;
+    font-style: italic;
+}
+/* adjust cmb image top margin */
+@media screen and (1100px <= width < 1355px) {
+    #cmbImg {
+        margin-top: 6rem;
+    }
+}
+
+@media screen and (803px <= width < 937px) {
+    #cmbImg {
+        margin-top: 6rem;
+    }
+}
+
+@media screen and (width < 803px) {
+    #cmbImg {
+        margin-top: 0;
+    }    
+}
+
+#quantumGrav {
+    grid-area: qu;
+}
+
+#quantumGrav * {
+    margin: 0;
+}
+
+span {
+    color: lightgreen;
+}
+
+/* adjust page title for tiny screens */
+@media screen and (width < 366px) {
+    #pageTitle {
+        font-size: 2.8rem;
+    }
+}
