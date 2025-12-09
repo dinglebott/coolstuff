@@ -66,6 +66,7 @@ $("#js").mouseleave(function() {
 
 //bind tab info
 tabs = [
+    document.getElementById("building"),
     document.getElementById("threeBody"),
     document.getElementById("space")
 ]; //must use DOM object to avoid jQuery object not found
@@ -76,6 +77,10 @@ $("#space").data({
 $("#threeBody").data({
     "link": "3body/index.html",
     "focusBg": "linear-gradient(rgba(0, 0, 0, 0.3)), url(assets/3body_page.jpg)"
+});
+$("#building").data({
+    "link": "building.html",
+    "focusBg": "linear-gradient(grey)"
 });
 
 //page tab behaviour

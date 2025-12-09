@@ -201,6 +201,10 @@ h3 {
     background-position: center;
 }
 
+#building {
+    background-color: grey;
+}
+
 #test1, #test2, #test3, #test4, #test5, #test6 {
     background-color: grey;
     background-size: cover;
