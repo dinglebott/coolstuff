@@ -22,7 +22,76 @@
             <h1 id="pageTitle">3-Body Problem</h1>
             
         </div>
-        <h2>THIS PAGE IS UNDER CONSTRUCTION</h2>
-        <img src="../assets/building.gif">
+        
+        <div id="contentBox">
+            <div id="intro">
+                <p>The 3-body problem is a famous unsolved problem in physics. It deals with the trajectories of 3 celestial bodies (e.g. planets/stars), 
+                    moving under the influence of gravity (in other words, orbiting each other). Below is a simulated model of the 3-body problem.<br>
+                    DISCLAIMER: The simulation works best on 120Hz screens (e.g. iPhone Pro models and most Samsung phones), and is less accurate 
+                    on 60Hz screens (most regular iPhones).<br>
+                    <span id="readMore">(More about the 3-body problem)</span></p>
+                <p class="extra">In this context, "solution" refers to an analytical solution i.e. a set of equations that describes their positions 
+                    at any given point in time. This is done for the 2-body problem as follows:<br>
+                    First, find the barycentre of the system (i.e. the centre of mass). Without external forces, the barycentre remains at a constant velocity 
+                    regardless of how the 2 bodies move. Hence, it doesn't change from initial conditions. Now, the problem can be reduced to 
+                    two separate 1-body problems, for which the equations are well-known (Kepler's laws, Newton's laws etc).</p>
+                <p class="extra">For a system with 3 bodies, however, no such solution exists. Instead, the trajectories of the bodies must be calculated 
+                    numerically (as opposed to analytically). This means taking the position, velocity, and acceleration of each body at a time 
+                    <span style="font-family: 'Times New Roman', serif; font-style: italic;">t</span>, using all that to calculate the new position, 
+                    velocity, and acceleration at a time <span style="font-family: 'Times New Roman', serif; font-style: italic;">t + dt</span>, and repeating 
+                    this process infinitely. In other words, instead of a single neat formula to describe the whole trajectory, we must break the curves into 
+                    very tiny segments and manually calculate each segment of the trajectory. This is the method the simulation uses. 
+                    (More details about the exact algorithm can be found under "About the simulation" below.)</p>
+            </div>
+            <p id="dragInfo">Drag the bodies around to find new patterns!</p>
+            <canvas id="sim" width="2200" height="1000">Your browser does not support the canvas element, or has JavaScript disabled.</canvas>
+            <div id="simInfo">
+                <div id="buttons">
+                    <button id="run">RUN</button>
+                    <button id="stop">STOP</button>
+                    <button id="reset">Reset</button><br>
+                    <input type="checkbox" id="showTrails" checked> Show trails
+                </div>
+                <p id="scaleText">Scale bar: 0.25 AU</p>
+                <div id="infoA">
+                    <p><b>Positions:</b>
+                        <span id="Axy">(<span id="Ax">Ax</span>, <span id="Ay">Ay</span>)</span>
+                        <span id="Bxy">(<span id="Bx">Bx</span>, <span id="By">By</span>)</span>
+                        <span id="Cxy">(<span id="Cx">Cx</span>, <span id="Cy">Cy</span>)</span>
+                        in billions of metres
+                    </p>
+                    <p><b>Velocities:</b>
+                        <span id="Avxy">(<span id="Avx">Avx</span>, <span id="Avy">Avy</span>)</span>
+                        <span id="Bvxy">(<span id="Bvx">Bvx</span>, <span id="Bvy">Bvy</span>)</span>
+                        <span id="Cvxy">(<span id="Cvx">Cvx</span>, <span id="Cvy">Cvy</span>)</span>
+                        in km/s
+                    </p>
+                </div>
+                <div id="infoB">
+                    <p><b>Time elapsed: </b><span id="timeElapsed"></span></p>
+                    <p><b>Masses:</b> 2.00 &times; 10<sup>30</sup> kg each (roughly the same as our Sun)</p>
+                </div>
+            </div>
+            <p id="readMore2">About the simulation (nerd warning)</p>
+            <h2 class="simExpl">Algorithm</h2>
+            <p class="simExpl">This simulation uses a numerical method (individually recalculating the new positions and accelerations of each body 
+                many times per second). Specifically, I used a variation of Verlet integration known as Velocity Verlet. The full derivation from a 
+                Taylor series can be found <a href="https://en.wikipedia.org/wiki/Verlet_integration">here</a>. In short, the steps are as follows:<br>
+                1. Calculate new positions with <span class="eqn">x<sub>new</sub> = x + v&Delta;t + &frac12; a&Delta;t<sup>2</sup></span><br>
+                2. Calculate new accelerations <span class="eqn">a<sub>new</sub></span> using Newton's standard formula for gravity<br>
+                3. Calculate new velocities with <span class="eqn">v<sub>new</sub> = v + &frac12;(a + a<sub>new</sub>)&Delta;t</span>
+            </p>
+            <p class="simExpl">Also, when the bodies touch each other, acceleration goes to infinity (because r is in the denominator of Newton's formula). 
+                To avoid this, r was replaced with <span class="eqn">&radic;(r<sup>2</sup> + &epsilon;<sup>2</sup>)</span>, where &epsilon; is a small 
+                number that needs to be adjusted. This "softening" factor prevents infinite acceleration, but also makes forces at close distances 
+                inaccurate, so it must be adjusted properly.
+            </p>
+            <h2 class="simExpl">Why refresh rate matters</h2>
+            <p class="simExpl" id="last">The animation rate is synced to the refresh rate of the screen to maximise smoothness. In other words, on 60Hz screens, 60 new 
+                animation frames are calculated per second. This means that 120Hz screens will run the animation twice as fast. To counteract this, I added a 
+                small function to calculate the user's refresh rate, and double the value of <span class="eqn">&Delta;t</span> if it is 60Hz instead of 120Hz. 
+                However, a smaller <span class="eqn">&Delta;t</span> is more accurate (integration!), so it's not as correct on 60Hz screens. Time to buy 
+                a Samsung...</p>
+        </div>
     </body>
 </html>

@@ -42,11 +42,11 @@ body {
     min-height: 100vh;
     margin: 0;
     padding-top: 1rem;
-    background-image: radial-gradient(circle at center, rgba(10, 10, 60, 0.7), rgb(0, 0, 20, 0.5)), url(../assets/3body_page.jpg);
+    background-image: radial-gradient(circle at top left, lightblue, rgb(235, 150, 150));
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
-    color: lightgray;
+    color: rgb(30, 30, 30);
     font-family: "Jost";
 }
 
@@ -68,6 +68,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: lightgrey;
     cursor: pointer;
 }
 
@@ -81,7 +82,7 @@ body {
     grid-area: 1 / 2 / 3 / 3;
     margin: 0;
     text-align: center;
-    color: darkgrey;
+    color: black;
     font-size: 4rem;
     font-family: 'Exo 2';
     font-weight: normal;
@@ -100,12 +101,12 @@ body {
 }
 
 a:link, a:visited {
-    color: turquoise;
+    color: green;
     text-decoration: none;
 }
 
 a:hover, a:active {
-    color: darkcyan;
+    color: darkgreen;
     text-decoration: underline;
 }
 
@@ -120,4 +121,132 @@ a:hover, a:active {
     #pageTitle {
         font-size: 2.5rem;
     }
+}
+
+#contentBox {
+    padding: 0 1rem 1rem;
+}
+
+#intro {
+    text-align: justify;
+}
+
+.extra {
+    display: none;
+}
+
+#intro p {
+    margin: 0.5rem 0 0.5rem;
+}
+
+#readMore, #readMore2 {
+    font-size: 0.9rem;
+    color: blue;
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#readMore:hover, #readMore2:hover {
+    color: darkred;
+}
+
+#sim {
+    width: 100%;
+    aspect-ratio: 2.2;
+    margin-left: auto;
+    outline: 3px solid black;
+    touch-action: none;
+}
+
+#dragInfo {
+    position: absolute;
+    margin: 0;
+    font-size: 0.8rem;
+    z-index: -1;
+}
+
+#simInfo {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "bu sc"
+    "ia ib";
+    gap: 1rem;
+}
+
+@media screen and (width < 559px) {
+    #simInfo {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+        "bu sc"
+        "ia ia"
+        "ib ib";
+    }
+}
+
+#simInfo * {
+    margin: 0;
+}
+
+#buttons {
+    grid-area: bu;
+}
+
+#scaleText {
+    margin: 0;
+    justify-self: right;
+    font-size: 0.9rem;
+    grid-area: sc;
+}
+
+#infoA {
+    grid-area: ia;
+}
+
+#infoB {
+    grid-area: ib;
+}
+
+button {
+    font-size: 1.2rem;
+    font-family: "Exo 2";
+}
+
+#run {
+    background-color: lightgreen;
+}
+
+#stop {
+    background-color: pink;
+}
+
+#Axy, #Avxy {
+    color: red;
+}
+
+#Bxy, #Bvxy {
+    color: green;
+}
+
+#Cxy, #Cvxy {
+    color: blue;
+}
+
+.simExpl {
+    display: none;
+}
+
+h2.simExpl {
+    margin: 1rem 0 0;
+}
+
+p.simExpl {
+    margin: 0.5rem 0 0;
+}
+
+.eqn {
+    font-family: Cambria, serif;
 }
