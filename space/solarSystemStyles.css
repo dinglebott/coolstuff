@@ -1,0 +1,13 @@
+body {
+    text-align: justify;
+}
+
+header {
+    padding: 0 1rem;
+}
+
+header p {
+    margin: 0;
+}
+
+/* app styles handled in react bundle */
