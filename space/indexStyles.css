@@ -123,6 +123,7 @@ h2 {
     position: absolute;
     top: 0%;
     clip-path: ellipse(50% 50% at center);
+    cursor: pointer;
 }
 
 #milkyWay {
