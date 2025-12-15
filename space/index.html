@@ -50,8 +50,8 @@
                 <p id="spaceMapDesc">Our Solar System is part of the Milky Way galaxy, which is part of 
                     a larger group of galaxies called the Local Group (about 10 million light-years long).</p>
                 <div id="ssWrapper">
-                    <img id="solarSystem" title="Solar System" src="../assets/space/solar_system.jpg" alt="Image of the Solar System">
-                    <p id="ssDesc">Our Solar System</p>
+                    <img id="solarSystem" title="Solar System (Click to learn more)" src="../assets/space/solar_system.jpg" alt="Image of the Solar System">
+                    <p id="ssDesc">Our Solar System<br><a href="solarSystem.html">(Learn more)</a></p>
                 </div>
                 <div id="mwWrapper">
                     <img id="milkyWay" title="Milky Way" src="../assets/space/milky_way.jpeg" alt="Image of the Milky Way">
@@ -68,6 +68,10 @@
             //home button link
             $("#homeButton").click(function() {
                 location.href = "../index.html"
+            });
+            //solar system image link
+            $("#solarSystem").click(function() {
+                location.href = "solarSystem.html"
             });
 
             //position image labels
