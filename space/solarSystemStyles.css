@@ -10,4 +10,91 @@ header p {
     margin: 0;
 }
 
-/* app styles handled in react bundle */
+/* app internal styles handled in react bundle */
+
+.App {
+    height: 900px;
+}
+
+@media screen and (width < 1433px) {
+    .App {
+        height: 1200px;
+    }
+}
+
+@media screen and (width < 1255px) {
+    .App {
+        height: 1500px;
+    }
+}
+
+@media screen and (width < 1109px) {
+    .App {
+        height: 1800px;
+    }
+}
+
+@media screen and (width < 1040px) {
+    .App {
+        height: 1900px;
+    }
+}
+
+/* (width < 1023px) { infoDisplay vertical stack } */
+@media screen and (width < 1023px) {
+    .App {
+        height: 1600px;
+    }
+}
+
+@media screen and (width < 799px) {
+    .App {
+        height: 1650px;
+    }
+}
+
+@media screen and (width < 656px) {
+    .App {
+        height: 1710px;
+    }
+}
+
+/* (width < 621px) { selector vertical stack } */
+@media screen and (width < 621px) {
+    .App {
+        height: 900px;
+    }
+
+    .infoDisplay {
+        overflow-y: scroll;
+    }
+
+    .selector ul {
+        grid-auto-rows: 39.33px;
+        grid-template-columns: repeat(auto-fit, 96px);
+    }
+}
+
+@media screen and (width < 493px) {
+    .planetImg {
+        width: 250px;
+    }
+
+    td {
+        white-space: normal;
+        text-align: left;
+    }
+}
+
+.about {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+h2.about {
+    margin-bottom: 0.5rem;
+}
+
+p.about {
+    margin-top: 0.5rem;
+}
