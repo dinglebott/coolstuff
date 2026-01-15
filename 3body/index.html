@@ -27,8 +27,7 @@
             <div id="intro">
                 <p>The 3-body problem is a famous unsolved problem in physics. It deals with the trajectories of 3 celestial bodies (e.g. planets/stars), 
                     moving under the influence of gravity (in other words, orbiting each other). Below is a simulated model of the 3-body problem.<br>
-                    DISCLAIMER: The simulation works best on 120Hz screens (e.g. iPhone Pro models and most Samsung phones), and is less accurate 
-                    on 60Hz screens (most regular iPhones).<br>
+                    (The simulation is more accurate at higher refresh rates. See "About the simulation" for details.)<br>
                     <span id="readMore">(More about the 3-body problem)</span></p>
                 <p class="extra">In this context, "solution" refers to an analytical solution i.e. a set of equations that describes their positions 
                     at any given point in time. This is done for the 2-body problem as follows:<br>
@@ -87,11 +86,11 @@
                 inaccurate, so it must be adjusted properly.
             </p>
             <h2 class="simExpl">Why refresh rate matters</h2>
-            <p class="simExpl" id="last">The animation rate is synced to the refresh rate of the screen to maximise smoothness. In other words, on 60Hz screens, 60 new 
-                animation frames are calculated per second. This means that 120Hz screens will run the animation twice as fast. To counteract this, I added a 
-                small function to calculate the user's refresh rate, and double the value of <span class="eqn">&Delta;t</span> if it is 60Hz instead of 120Hz. 
-                However, a smaller <span class="eqn">&Delta;t</span> is more accurate (integration!), so it's not as correct on 60Hz screens. Time to buy 
-                a Samsung...</p>
+            <p class="simExpl" id="last">The animation function is synced to the refresh rate of the screen to maximise smoothness. In other words, on 60Hz screens, 
+                60 new animation frames are calculated per second. To prevent faster devices from running the simulation faster, I made it so that 
+                <span class="eqn">&Delta;t</span> is dynamically updated based on the time between frames. On devices with faster refresh rate e.g. Samsung phones, 
+                <span class="eqn">&Delta;t</span> will be smaller. This makes it more accurate due to how integration works, so it's not as correct on 60Hz screens. 
+                Time to buy a Samsung...</p>
         </div>
     </body>
 </html>

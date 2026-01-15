@@ -45,32 +45,6 @@ $("#readMore2").click(function() {
     }
 });
 
-/* GET DEVICE REFRESH RATE */
-let frameCount = 0;
-let edgeTstamps = [];
-let hz = 0;
-function callFrame(tstamp) {
-    //get timestamp of 1st and 10th frames
-    frameCount++;
-    if (frameCount == 1) {
-        edgeTstamps.push(tstamp);
-    }
-    if (frameCount == 11) {
-        edgeTstamps.push(tstamp);
-    }
-    if (frameCount < 11) {
-        requestAnimationFrame(callFrame);
-    }
-}
-$(window).on("load", function() {
-    requestAnimationFrame(callFrame);
-    setTimeout(function() {
-        //divide 1000 by average frame interval
-        hz = 1000 / ((edgeTstamps[1] - edgeTstamps[0]) / 10);
-        console.log(`Estimated refresh rate: ${hz}hz`);
-    }, 300);
-});
-
 /* INITIALISE BODIES */
 class Body {
     constructor(x, y, colour) {
@@ -83,6 +57,24 @@ class Body {
         this.ax2 = 0;
         this.ay2 = 0;
         this.colour = colour;
+        this.trail = [];
+    }
+    reset() {
+        switch (this.colour) {
+            case "red":
+                this.x = 750;
+                this.y = 350;
+                break;
+            case "green":
+                this.x = 1350;
+                this.y = 800;
+                break;
+            case "blue":
+                this.x = 1400;
+                this.y = 400;
+                break;
+        }
+        this.vx = this.vy = this.ax = this.ay = this.ax2 = this.ay2 = 0;
         this.trail = [];
     }
 }
@@ -264,6 +256,7 @@ let simRunning = false;
 let timeElapsed = 0;
 const G = 66743000;
 let dt = 0.0004;
+let prevT = null; //for framerate responsiveness
 //increase dt if slow refresh rate
 setTimeout(function() {
     if (hz <= 90) {
@@ -282,8 +275,13 @@ function gAccel(body1, body2) {
     };
 }
 //MAIN ANIMATION FUNCTION (Verlet integration lives here!)
-function nextFrame() {
+function nextFrame(t) {
     //initial velocities and accelerations are all 0
+    //update dt for framerate
+    if (prevT) {
+        dt = 0.0004 * ((t - prevT) / 6.06);
+    }
+    prevT = t;
     //update position
     for (const body of bodies) {
         body.x += body.vx*dt + 0.5*body.ax*dt*dt;
@@ -334,21 +332,31 @@ function nextFrame() {
     $("#timeElapsed").text(`${Math.round(timeElapsed)} days`);
     //call next frame
     if (simRunning) {   
-        requestAnimationFrame(nextFrame);
+        requestAnimationFrame((t) => {
+            nextFrame(t);
+        });
     }
 }
 
 $("#run").click(function() {
     if (!simRunning) {
         simRunning = true;
+        prevT = null;
         requestAnimationFrame(nextFrame);
     }
 });
 $("#stop").click(function() {
     if (simRunning) {
         simRunning = false;
+        prevT = null;
     }
 });
 $("#reset").click(function() {
-    location.reload();
+    for (body of bodies) {
+        body.reset();
+    }
+    timeElapsed = 0;
+    drawBodies();
+    prevT = null;
+    simRunning = false;
 });
