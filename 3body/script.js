@@ -240,12 +240,15 @@ sim.addEventListener("touchmove", function(e) {
 });
 //after drag
 sim.addEventListener("mouseup", function() {
+    liftedBody.trail = [];
     liftedBody = null;
 });
 sim.addEventListener("mouseleave", function() {
+    liftedBody.trail = [];
     liftedBody = null;
 });
 sim.addEventListener("touchend", function() {
+    liftedBody.trail = [];
     liftedBody = null;
 });
 
