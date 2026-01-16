@@ -201,6 +201,12 @@ h3 {
     background-position: center;
 }
 
+#pong {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url(assets/pong_page.png);
+    background-size: cover;
+    background-position: center;
+}
+
 #building {
     background-color: grey;
 }
