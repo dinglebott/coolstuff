@@ -68,7 +68,8 @@ $("#js").mouseleave(function() {
 tabs = [
     document.getElementById("building"),
     document.getElementById("threeBody"),
-    document.getElementById("space")
+    document.getElementById("space"),
+    document.getElementById("pong")
 ]; //must use DOM object to avoid jQuery object not found
 $("#space").data({
     "link": "space/index.html",
@@ -78,6 +79,10 @@ $("#threeBody").data({
     "link": "3body/index.html",
     "focusBg": "linear-gradient(rgba(0, 0, 0, 0.3)), url(assets/3body_page.jpg)"
 });
+$("#pong").data({
+    "link": "pong/index.html",
+    "focusBg": "linear-gradient(rgba(0, 0, 0, 0.4)), url(assets/pong_page.png)"
+})
 $("#building").data({
     "link": "building.html",
     "focusBg": "linear-gradient(grey)"
