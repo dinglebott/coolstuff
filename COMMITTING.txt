@@ -1,0 +1,5 @@
+1. Add new tab to index.html
+2. Style tab in styles.css
+3. Add new tab in script.js (in tabs array)
+4. Bind tab info with jQuery .data method
+THINGS TO COMMIT: index.html, styles.css, script.js, new files
