@@ -67,9 +67,9 @@ $("#js").mouseleave(function() {
 //bind tab info
 tabs = [
     document.getElementById("building"),
+    document.getElementById("pong"),
     document.getElementById("threeBody"),
-    document.getElementById("space"),
-    document.getElementById("pong")
+    document.getElementById("space")
 ]; //must use DOM object to avoid jQuery object not found
 $("#space").data({
     "link": "space/index.html",
